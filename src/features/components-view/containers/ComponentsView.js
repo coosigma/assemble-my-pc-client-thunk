@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
 	onCategoryChange: (event) => {
 		const category = event.target.value;
 		if (category !== "") {
-			dispatch(ACTIONS.REQUEST_CATEGORY(category));
+			dispatch(ACTIONS.FETCH_CATEGORY_IF_NEEDED(category));
 		}
 		dispatch(ACTIONS.SET_CURRENT_CATEGORY(category));
 	},
