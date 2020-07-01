@@ -1,9 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const TableDiv = styled.div`
-	// background-color: red;
-	// color: blue;
 	text-align: center;
 `;
 
@@ -15,7 +14,7 @@ class ComponentsList extends React.Component {
 					<div className='span12'>
 						<TableDiv>
 							<table
-								className='components-list table table-striped'
+								className='components-list table table-striped table-hover'
 								style={{ margin: "auto" }}>
 								<thead className='thead-dark'>
 									<tr>
@@ -32,7 +31,13 @@ class ComponentsList extends React.Component {
 												<tr key={index}>
 													{Array.from(row.keys()).map((key) => {
 														if (key === "id") {
-															return <td key={key}>{row.get(key)}</td>;
+															return (
+																<td key={key}>
+																	<Link to={`/components-view/${row.get(key)}`}>
+																		{row.get(key)}
+																	</Link>
+																</td>
+															);
 														} else {
 															return <td key={key}>{row.get(key)}</td>;
 														}

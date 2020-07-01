@@ -47,6 +47,7 @@ const selectorValues = (state) => ({
 
 const mapStateToProps = (state) => ({
 	allComponents: state.get("allComponents"),
+	currentCategory: state.get("currentCategory"),
 	selectorOptions,
 	selectorValues: selectorValues(state),
 	list: allComponentsToComponentsList(state),

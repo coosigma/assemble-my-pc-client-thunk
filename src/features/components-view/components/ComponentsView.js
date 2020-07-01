@@ -8,6 +8,7 @@ class ComponentsView extends React.Component {
 		return (
 			<React.Fragment>
 				<ComponentsSelector
+					currentCategory={this.props.currentCategory}
 					optionGroups={this.props.selectorOptions}
 					valueGroups={this.props.selectorValues}
 					onCategoryChange={this.props.onCategoryChange}
@@ -24,6 +25,7 @@ ComponentsView.protoTypes = {
 		didInvalidate: Boolean.isRequired,
 		data: ImmutablePropTypes.map.isRequired,
 	}),
+	currentCategory: String,
 	selectorOptions: Object.isRequired,
 	selectorValues: Object.isRequired,
 	onCategoryChange: Function,

@@ -13,7 +13,10 @@ class ComponentsSelector extends React.Component {
 						.get("currentCategory")
 						.map((option, index) => {
 							return (
-								<option key={index} value={option[0]}>
+								<option
+									key={index}
+									value={option[0]}
+									selected={this.props.currentCategory === option[0]}>
 									{option[1]}
 								</option>
 							);
