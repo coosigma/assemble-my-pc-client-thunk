@@ -1,4 +1,5 @@
-export const domain = "http://localhost:9000";
+// export const domain = "http://localhost:9000";
+export const domain = "http://localhost:8000/api";
 
 export function requestCategory(category) {
 	const uri = domain + "/components/" + category;
@@ -15,7 +16,11 @@ function fetchCategory(category) {
 		const uri = domain + "/components/" + category;
 		const response = await fetch(uri);
 		let json = await response.json();
-		json = { [category]: json.components };
+		if (json.status === "404") {
+			json = { [category]: [] };
+		} else {
+			json = { [category]: json };
+		}
 		return dispatch(receiveCategory(json));
 	};
 }

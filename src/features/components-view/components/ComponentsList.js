@@ -1,5 +1,4 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
 import styled from "styled-components";
 
 const TableDiv = styled.div`
@@ -20,7 +19,7 @@ class ComponentsList extends React.Component {
 								style={{ margin: "auto" }}>
 								<thead className='thead-dark'>
 									<tr>
-										<th>Select</th>
+										<th>ID</th>
 										<th>Producer</th>
 										<th>Type</th>
 										<th>Price</th>
@@ -31,17 +30,12 @@ class ComponentsList extends React.Component {
 										this.props.list.map((row, index) => {
 											return (
 												<tr key={index}>
-													<td>
-														<Form.Check
-															type='radio'
-															aria-label='list-selector'
-															onChange={(e) => {
-																console.log(e.target.value);
-															}}
-														/>
-													</td>
 													{Array.from(row.keys()).map((key) => {
-														return <td key={key}>{row.get(key)}</td>;
+														if (key === "id") {
+															return <td key={key}>{row.get(key)}</td>;
+														} else {
+															return <td key={key}>{row.get(key)}</td>;
+														}
 													})}
 												</tr>
 											);

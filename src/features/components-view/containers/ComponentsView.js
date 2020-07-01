@@ -7,7 +7,8 @@ function allComponentsToComponentsList(state) {
 	if (rawData.size === 0) {
 		return [];
 	}
-	const headers = ["producer", "type", "price"];
+	// const headers = ["producer", "type", "price"];
+	const headers = ["id", "manufacturer", "name", "price"];
 	const category = state.get("currentCategory");
 	const sourceList = rawData.get(category);
 	if (!sourceList) {
@@ -15,10 +16,11 @@ function allComponentsToComponentsList(state) {
 	}
 	const items = [];
 	for (const item of sourceList) {
-		const source = item.get("_source");
+		// const source = item.get("_source");
 		const listItem = new Map();
 		for (const field of headers) {
-			const value = source.get(field);
+			// const value = source.get(field);
+			const value = item.get(field);
 			if (value) {
 				listItem.set(field, value);
 			}
