@@ -1,4 +1,3 @@
-// export const domain = "http://localhost:9000";
 export const domain = "http://localhost:8000/api";
 
 export function requestCategory(category) {
