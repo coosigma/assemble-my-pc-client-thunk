@@ -13,7 +13,10 @@ class ComponentsView extends React.Component {
 					valueGroups={this.props.selectorValues}
 					onCategoryChange={this.props.onCategoryChange}
 				/>
-				<ComponentsList list={this.props.list} />
+				<ComponentsList
+					isFetching={this.props.allComponents.get("isFetching")}
+					list={this.props.list}
+				/>
 			</React.Fragment>
 		);
 	}

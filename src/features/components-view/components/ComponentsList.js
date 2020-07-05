@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Spinner from "react-bootstrap/Spinner";
 
 const TableDiv = styled.div`
 	text-align: center;
@@ -25,6 +26,15 @@ class ComponentsList extends React.Component {
 									</tr>
 								</thead>
 								<tbody>
+									{this.props.isFetching && (
+										<tr>
+											<td colSpan='5'>
+												<Spinner animation='border' role='status'>
+													<span className='sr-only'>Loading...</span>
+												</Spinner>
+											</td>
+										</tr>
+									)}
 									{this.props.list &&
 										this.props.list.map((row, index) => {
 											return (
@@ -56,6 +66,7 @@ class ComponentsList extends React.Component {
 }
 
 ComponentsList.protoTypes = {
+	isFetching: Boolean,
 	list: Array.isRequired,
 };
 
