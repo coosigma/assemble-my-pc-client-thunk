@@ -1,4 +1,4 @@
-# assemble-my-pc-client-thunk
+# assemble-my-pc-client-thunk (Due to the choice of redux-sage, it has been decided not to update)
 
 | Task                                                        | Status             |
 | ----------------------------------------------------------- | ------------------ |
